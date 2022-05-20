@@ -40,10 +40,13 @@
     <label for="yearSelect">Select Year: </label>
     <select class="custom-select" id="yearSelect" onchange="onCategoryChanged()"></select>
 </div>
+<text class="outline">Hover over the bars for more information</text>
+
 <div id="temp_vis">
     <div class="column" id="my_dataviz"></div>
     <div id='hover_graph' class="column"></div>
 </div>
+
 </body>
 <script>
 
@@ -349,6 +352,10 @@ function createLineGraph(data) {
   svg2.append('text')
       .text('Temperature Change Overview in ' + data[0].County)
       .attr("transform", "translate("+ 100 + ',0' + ")")
+
+  svg2.append('text')
+      .text('Population: ' + data[0].Population + " Community Type: " + data[0].Comm_Type)
+      .attr("transform", "translate("+ 100 + ',' + 350 + ")")
 
       data.sort(function(x, y){
    return d3.ascending(x.Year, y.Year);
